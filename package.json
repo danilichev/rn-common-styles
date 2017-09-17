@@ -1,0 +1,23 @@
+{
+  "name": "rn-common-styles",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "styles"
+  ],
+  "author": {
+    "name": "V. Danilichev",
+    "email": "v.danilichev@gmail.com"
+  },
+  "homepage": "https://github.com/danilichev/rn-common-styles",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:danilichev/rn-common-styles.git"
+  },
+  "license": "ISC"
+}
