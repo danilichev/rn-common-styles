@@ -9,7 +9,7 @@ const defaultSettings = {
   whiteColor: '#ffffff',
 }
 
-const getStyles = (settings = {}) => {
+const getStyles = (settings = {}, styles = {}) => {
   const {
     indent,
     borderWidth,
@@ -116,6 +116,8 @@ const getStyles = (settings = {}) => {
     secondaryTextColor: {
       color: secondaryTextColor,
     },
+
+    ...styles,
   });
 };
 
