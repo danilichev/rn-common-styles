@@ -1,21 +1,30 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import getStyles from 'rn-common-styles';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import s from './app/styles';
 
-const styles = getStyles(null, {
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const duckImg = require('./app/assets/duck.jpg');
+
+const styles = StyleSheet.create({
+  root: {
+    backgroundColor: '#D3D3D3',
   },
-});
+  image: {
+    width: 80,
+    height: 120,
+  },
+})
 
 const App = () => (
-  <View style={styles.fillAll}>
-    <Text>Open up App.js to start working on your app!</Text>
-    <Text>Changes you make will automatically reload.</Text>
-    <Text>Shake your phone to open the developer menu.</Text>
+  <View style={[s.fillAll, s.centered, styles.root]}>
+    <View style={[s.rowAligned, s.doublePaddings, s.whiteBackground, s.rounded]}>
+      <Image
+        style={[styles.image, s.marginRight]}
+        source={duckImg}
+      />
+      <View style={s.borderBottom}>
+        <Text style={s.primaryTextColor}>wishes you luck!</Text>
+      </View>
+    </View>
   </View>
 );
 
