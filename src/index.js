@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
+import { multiplyIndents } from './utils';
 
 const defaultSettings = {
-  indent: 5,
+  indent: 10,
   borderWidth: StyleSheet.hairlineWidth,
   borderColor: '#e6e6e6',
   primaryTextColor: '#212121',
@@ -19,15 +20,7 @@ const getStyles = (settings = {}, styles = {}) => {
     whiteColor,
   } = { ...defaultSettings, ...settings };
 
-  return StyleSheet.create({
-    fillAll: {
-      flex: 1,
-    },
-    row: {
-      flexDirection: 'row',
-    },
-
-    // margins
+  const margins = {
     marginTop: {
       marginTop: indent,
     },
@@ -48,14 +41,15 @@ const getStyles = (settings = {}, styles = {}) => {
       marginTop: indent,
       marginBottom: indent,
     },
-    withoutMargins: {
-      marginTop: 0,
-      marginRight: 0,
-      marginBottom: 0,
-      marginLeft: 0,
+    margins: {
+      marginTop: indent,
+      marginRight: indent,
+      marginBottom: indent,
+      marginLeft: indent,
     },
+  };
 
-    // paddings
+  const paddings = {
     paddingTop: {
       paddingTop: indent,
     },
@@ -76,6 +70,49 @@ const getStyles = (settings = {}, styles = {}) => {
       paddingTop: indent,
       paddingBottom: indent,
     },
+    paddings: {
+      paddingTop: indent,
+      paddingRight: indent,
+      paddingBottom: indent,
+      paddingLeft: indent,
+    },
+  };
+
+  return StyleSheet.create({
+    fillAll: {
+      flex: 1,
+    },
+    row: {
+      flexDirection: 'row',
+    },
+
+    rowAligned: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+
+    centered: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
+    // margins
+    ...margins,
+    ...multiplyIndents(margins, 'double', 2),
+    ...multiplyIndents(margins, 'half', 0.5),
+
+    withoutMargins: {
+      marginTop: 0,
+      marginRight: 0,
+      marginBottom: 0,
+      marginLeft: 0,
+    },
+
+    // paddings
+    ...paddings,
+    ...multiplyIndents(paddings, 'double', 2),
+    ...multiplyIndents(paddings, 'half', 0.5),
+
     withoutPaddings: {
       paddingTop: 0,
       paddingRight: 0,
